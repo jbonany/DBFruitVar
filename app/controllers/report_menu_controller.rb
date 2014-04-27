@@ -1,0 +1,2 @@
+class ReportMenuController < ApplicationController
+end

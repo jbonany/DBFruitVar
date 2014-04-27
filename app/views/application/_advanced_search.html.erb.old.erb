@@ -1,0 +1,52 @@
+<div class="modal-dialog modal-lg">
+  <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title" id="myModalLabel">Advanced search</h4>
+      </div>      
+      <div class="modal-body">
+        
+              <%= search_form_for @search, :url => url_report do |f| %>
+
+                <% setup_search_form f %>
+                  
+                  <fieldset style = "border: 1px solid #c0c0c0; padding: 1em;" > 
+                   <legend class='h4' style = "border: none; width: inherit; padding: 0 10px;" >Sorting</legend>
+
+                    <%= f.sort_fields do |s| %>
+                      <%= render :partial => 'sort_fields', f: s %>
+                    <% end %>
+
+                    <%= button_to_add_fields "Add Sort", f, :sort %>
+                  </fieldset>
+
+                  <fieldset style = "border: 1px solid #c0c0c0; padding: 1em;" >
+                    <legend class='h4' style = "border: none; width: inherit; padding: 0 10px;">Condition Groups</legend>
+                    <%= f.grouping_fields do |g| %>
+                      <%= render 'grouping_fields', f: g %>
+
+                      
+                    <% end %>
+                    <%= button_to_add_fields "Add Condition Group", f, :grouping %>
+                    
+                  </fieldset>
+
+                  <%= label_tag :distinct, 'Return distinct records?' %>
+                  <%= check_box_tag :distinct, '1', params[:distinct].to_i == 1 %>
+                  <%= f.submit "Search", :class => "btn btn-xs btn-primary" %>
+
+              <% end %>
+
+              <script type="text/javascript">
+                  $(function() {
+                    <%= yield :document_ready %>
+                  });
+              </script>
+           
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default btn-xs" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>   
+      

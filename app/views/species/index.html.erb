@@ -1,0 +1,73 @@
+<div class='row'>
+  <div class="col-md-9">
+    <h4>Listing species</h4>
+  </div>
+  <div class="col-md-3">
+    <%= search_form_for @search, :html => {:class => "form-inline"} do |f| %> 
+      <%= hidden_field_tag :per_page, @per_page %>
+      <div class='form-group'>
+        <div class='input-group'>
+          <%= f.text_field  :name_cont, :placeholder => 'Name contains', :class => "form-control input-sm" %>
+          <span class='input-group-btn'>
+            <button class="btn btn-sm btn-default" type="submit"><span class="glyphicon glyphicon-search"></span></button>
+          </span>
+        </div>
+      </div>
+      
+    <% end %>
+  </div>
+</div>
+
+<div class='row'>
+  <div class="col-md-9">
+    <div>
+      <%= label_tag 'selectnumber', 'Show' %>
+      <%= select_tag :per_page, options_for_select([10,15,20,50], @per_page.to_i), :onchange => "if(this.value){window.location='?per_page='+this.value;}"%>
+      <%= label_tag 'entries', 'entries' %>
+    </div>
+  </div>
+  <div class="col-md-3">
+    <%= link_to 'New species', new_species_path, :class => 'btn btn-xs btn-primary pull-right' %>
+  </div>
+</div>
+
+<table class="table table-striped table-condensed ">
+  <thead>
+    <tr>
+      <th><%= sort_link @search, :name, "Name" %></th>
+      <th><%= sort_link @search, :latinname, "Latin name" %></th>
+      <th><%= sort_link @search, :acronym, "Acronym" %> </th>
+       <th>
+        <%= link_to species_index_path(:q => params[:q], :qs => params[:qs], format: "csv"), class: "btn btn-xs btn-default" do %>
+          <span class="glyphicon glyphicon-download"></span> CSV </i>
+        <% end %>
+      <th>
+        <%= link_to species_index_path(:q => params[:q], :qs => params[:qs], format: "xls"), class: "btn btn-xs btn-default" do %>
+          <span class="glyphicon glyphicon-download"></span> XLS </i>
+        <% end %>
+      </th>
+      <th>
+        <%= link_to species_index_path(:q => params[:q], :qs => params[:qs], format: "pdf"), class: "btn btn-xs btn-default" do %>
+          <span class="glyphicon glyphicon-download"></span> PDF </i>
+        <% end %>
+      </th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @species.each do |species| %>
+      <tr>
+        <td><%= species.name %></td>
+        <td><%= species.latinname %></td>
+        <td><%= species.acronym %></td>
+        <td><%= link_to 'Show', species, :class => 'btn btn-xs btn-default ' %></td>
+        <td><%= link_to 'Edit', edit_species_path(species),  :class => 'btn btn-xs btn-primary '  %></td>
+        <td><%= link_to 'Destroy', species, :method => :delete, :confirm => 'Are you sure?', :class => 'btn btn-xs btn-danger ' %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<%= will_paginate @countries, renderer: BootstrapPagination::Rails, class: 'pagination-sm' %>
+
+
+

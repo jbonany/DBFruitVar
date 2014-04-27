@@ -1,0 +1,24 @@
+<div class="row">
+	<h1>Reports</h1>
+</div>
+<div class="row">
+	<div class="col-md-3">
+        <h3>Phenome</h3>
+        <p><%= link_to 'Production records', report_production_records_path %></p>
+        <p><%= link_to 'Production records by block and year', report_production_records_path %></p>
+        <p><%= link_to 'Production records by block', report_production_records_path %></p>
+    </div>
+    <div class="col-md-3">
+        <h3>Auxiliary</h3>
+        <p><%= link_to 'Collections', report_collections_path %><p>
+        <p><%= link_to 'Accessions', report_accessions_path %><p>
+    </div>
+    <div class="col-md-3">
+        <h3>Summary</h3>
+        <p><%= link_to 'Accession summary report', summary_report_accessions_path %><p>
+    </div>
+    <div class="col-md-3">
+        <h3>Maps</h3>
+        <p><%= link_to 'Accession summary report', summary_report_accessions_path %><p>
+    </div>
+</div>

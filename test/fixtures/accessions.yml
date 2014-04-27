@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  commercial_name: MyString
+  clon_name: MyString
+  synonims: MyString
+  oldcode: 1
+  species_id: 
+  group_id: 
+
+two:
+  name: MyString
+  commercial_name: MyString
+  clon_name: MyString
+  synonims: MyString
+  oldcode: 1
+  species_id: 
+  group_id: 

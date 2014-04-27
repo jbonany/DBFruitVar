@@ -1,0 +1,24 @@
+<%= simple_form_for(@country, html: {class: 'form-group'}, defaults: { input_html: { class: 'form-control'}} ) do |f| %>
+
+  <% if @country.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@country.errors.count, "error") %> prohibited this country from being saved:</h2>
+
+      <ul>
+      <% @country.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <%=f.input :iso %>
+  <%=f.input :name%>
+  <%=f.input :nicename, :label => "Nice name"%>
+  <%=f.input :iso3, :label => "Iso 3"%>
+  <%=f.input :numcode, :label => "Numerical code" %>
+  <%=f.input :phonecode, :label => "Phone code" %>
+  <p></p>
+  <%=f.button :submit %>
+  <p></p> 
+<% end %>

@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @species.name %>
+</p>
+
+<p>
+  <strong>Latinname:</strong>
+  <%= @species.latinname %>
+</p>
+
+<p>
+  <strong>Acronym:</strong>
+  <%= @species.acronym %>
+</p>
+
+<%= link_to 'Edit', edit_species_path(@species), :class => 'btn btn-xs btn-primary ' %> |
+<%= link_to 'Back', species_index_path, :class => 'btn btn-xs btn-primary ' %>

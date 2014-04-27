@@ -1,0 +1,22 @@
+<%= simple_form_for(@collection, html: {class: 'form-group'}, defaults: { input_html: { class: 'form-control'}} ) do |f| %>
+ <% if @collection.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@location.errors.count, "error") %> prohibited this location from being saved:</h2>
+
+      <ul>
+      <% @collection.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <%= f.input :name %>
+  <%= f.association :location %>
+  <%= f.association :species %>
+  <%= f.input :row_distance %>
+  <%= f.input :tree_distance %>
+  <p></p>
+  <%= f.button :submit %>
+   <p></p>
+<% end %>

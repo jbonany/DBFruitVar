@@ -1,0 +1,49 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Tree:</strong>
+  <%= @tree.tree %>
+</p>
+
+<p>
+  <strong>Row:</strong>
+  <%= @tree.row %>
+</p>
+
+<p>
+  <strong>Planting date:</strong>
+  <%= @tree.planting_date %>
+</p>
+
+<p>
+  <strong>Pullout date:</strong>
+  <%= @tree.pullout_date %>
+</p>
+
+<p>
+  <strong>Rootstock:</strong>
+  <%= @tree.rootstock %>
+</p>
+
+<p>
+  <strong>Oldcode:</strong>
+  <%= @tree.oldcode %>
+</p>
+
+<p>
+  <strong>Oldaccessioncode:</strong>
+  <%= @tree.oldaccessioncode %>
+</p>
+
+<p>
+  <strong>Oldcollectioncode:</strong>
+  <%= @tree.oldcollectioncode %>
+</p>
+
+<p>
+  <strong>Block:</strong>
+  <%= @tree.block %>
+</p>
+
+<%= link_to 'Edit', edit_tree_path(@tree), :class => 'btn btn-xs btn-primary '%> |
+<%= link_to 'Back', trees_path, :class => 'btn btn-xs btn-primary ' %>

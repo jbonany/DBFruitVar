@@ -1,0 +1,134 @@
+<p id="notice"><%= notice %></p>
+<div class="panel panel-default">
+  <div class="panel-body">
+    <form class="form-horizontal" role="form">
+      <div class="form-group">
+        <label class="col-sm-2 control-label">Collection:</label>
+        <div class="col-sm-2">
+          <p class="form-control-static"><%= @block.collection.name %></p>
+        </div>
+        <label class="col-sm-2 control-label">Accession:</label>
+        <div class="col-sm-2">
+          <p class="form-control-static"><%= @block.accession.name %></p>
+        </div>
+        <label class="col-sm-2 control-label">Row:</label>
+        <div class="col-sm-2">
+          <p class="form-control-static"><%= @block.row %></p>
+        </div>
+        <label class="col-sm-2 control-label">First tree:</label>
+        <div class="col-sm-2">
+          <p class="form-control-static"> <%= @block.first_tree %></p>
+        </div>
+         <label class="col-sm-2 control-label">Last tree:</label>
+        <div class="col-sm-2">
+          <p class="form-control-static"> <%= @block.last_tree %></p>
+        </div>
+        <label class="col-sm-2 control-label">Planting date:</label>
+        <div class="col-sm-2">
+          <p class="form-control-static"> <%= @block.planting_date %></p>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+
+
+<div class="panel panel-default">
+  <div class="panel-body">
+    <!-- Nav tabs -->
+    <ul class="nav nav-tabs">
+      <li class="active"><a href="#phenology" data-toggle="tab">Phenology</a></li>
+      <li><a href="#production" data-toggle="tab">Production</a></li>
+      <li><a href="#quality" data-toggle="tab">Quality</a></li>
+    </ul>
+
+    <!-- Tab panes -->
+    <div class="tab-content">
+      <div class="tab-pane active" id="phenology">
+
+        <table class="table table-striped table-condensed ">
+          <thead>
+            <tr>
+              <th>Year</th>
+              <th>C3</th>
+              <th>E2</th>
+              <th>F2</th>
+              <th>G</th>
+              <th></th>
+              <th></th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <% @block.phenology_records.each do |phenology_record| %>
+              <tr>
+                <td><%= phenology_record.year %></td>
+                <td><%= phenology_record.c3 %></td>
+                <td><%= phenology_record.e2 %></td>
+                <td><%= phenology_record.f2 %></td>
+                <td><%= phenology_record.g %></td>
+                <td><%= link_to 'Edit', edit_block_phenology_record_path(@block, phenology_record), :class => 'btn btn-xs btn-primary '  %></td>
+                <td><%= link_to 'Destroy', [@block, phenology_record], :method => :delete, :confirm => 'Are you sure?', :class => 'btn btn-xs btn-danger '  %></td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+
+        <%= link_to 'New phenology record', new_block_phenology_record_path(@block), :class => 'btn btn-xs btn-primary ' %>
+
+      </div>
+      <div class="tab-pane" id="production">
+        <table class="table table-striped table-condensed ">
+          <thead>
+            <tr>
+              <th><%= sort_link @search_production, :harvest_date, "Harvest date" %></th>
+              <th><%= sort_link @search_production, :tree_number, "Tree number" %></th>
+              <th><%= sort_link @search_production, :production, "Production" %></th>
+              <th><%= sort_link @search_production, :c90, "C90" %></th>
+              <th><%= sort_link @search_production, :c8590, "C8590" %></th>
+              <th><%= sort_link @search_production, :c8085, "C8085" %></th>
+              <th><%= sort_link @search_production, :c7580, "C7580" %></th>
+              <th><%= sort_link @search_production, :c7275, "C7275" %></th>
+              <th><%= sort_link @search_production, :c7072, "C7072" %></th>
+              <th><%= sort_link @search_production, :c6870, "C6870" %></th>
+              <th><%= sort_link @search_production, :c6568, "C6568" %></th>
+              <th><%= sort_link @search_production, :c65, "C65" %></th>
+              <th></th>
+              <th></th>
+              <th></th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <% @block.production_records.each do |production_record| %>
+              <tr>
+                <td><%= production_record.harvest_date %></td>
+                <td><%= production_record.tree_number %></td>
+                <td><%= production_record.production %></td>
+                <td><%= production_record.c90 %></td>
+                <td><%= production_record.c8590 %></td>
+                <td><%= production_record.c8085 %></td>
+                <td><%= production_record.c7580 %></td>
+                <td><%= production_record.c7275 %></td>
+                <td><%= production_record.c7072 %></td>
+                <td><%= production_record.c6870 %></td>
+                <td><%= production_record.c6568 %></td>
+                <td><%= production_record.c65 %></td>
+                <td><%= link_to 'Edit', edit_block_production_record_path(@block,production_record) , :class => 'btn btn-xs btn-primary '  %></td>
+                <td><%= link_to 'Destroy', [@block, production_record], :method => :delete, :confirm => 'Are you sure?', :class => 'btn btn-xs btn-danger ' %></td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+
+        <%= link_to 'New production record', new_block_production_record_path(@block), :class => 'btn btn-xs btn-primary ' %>
+
+      </div>
+      <div class="tab-pane" id="quality">...</div>
+    </div>
+  </div>
+</div>
+
+
+<%= link_to 'Edit', edit_block_path(@block), :class => 'btn btn-xs btn-primary ' %> |
+<%= link_to 'Back', blocks_select_path, :class => 'btn btn-xs btn-primary ' %>

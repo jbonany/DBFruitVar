@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @group.name %>
+</p>
+
+<p>
+  <strong>Species:</strong>
+  <%= @group.species.name %>
+</p>
+
+<%= link_to 'Edit', edit_group_path(@group), :class => 'btn btn-xs btn-primary '  %> |
+<%= link_to 'Back', groups_path, :class => 'btn btn-xs btn-primary '  %>

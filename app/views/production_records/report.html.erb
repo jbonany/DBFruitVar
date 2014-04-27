@@ -1,0 +1,113 @@
+<div class='row'>
+  <div class="col-md-9">
+    <h4>Listing production records</h4>
+  </div>
+  <div class="col-md-3">
+    <%= search_form_for @search, :url => 'report', :html => {:class => "form-inline"} do |f| %> 
+      <%= hidden_field_tag :per_page, @per_page %>
+      <div class='form-group'>
+        <div class='input-group'>
+          <%= f.text_field  :block_accession_name_cont, :placeholder => 'Cultivar name contains', :class => "form-control input-sm" %>
+          <span class='input-group-btn'>
+            <button class="btn btn-sm btn-default" type="submit"><span class="glyphicon glyphicon-search"></span></button>
+          </span>
+        </div>
+      </div>
+      
+    <% end %>
+  </div>
+</div>
+<div class='row'>
+  <div class="col-md-9">
+  </div>
+  <div class="col-md-3">
+    <%= link_to 'Advanced search', report_production_records_path, {:class => 'btn btn-default btn-xs pull-right', :style =>'margin-bottom: 3px;', :remote => true, 'data-toggle' =>  "modal", 'data-target' => '#modal-search-window'}  %>
+  </br>
+  </div>
+</div>
+
+<div class='row'>
+  <div class="col-md-9">
+    <div>
+      <%= label_tag 'selectnumber', 'Show' %>
+      <%= select_tag :per_page, options_for_select([10,15,20,50], @per_page.to_i), :onchange => "if(this.value){window.location='?per_page='+this.value;}"%>
+      <%= label_tag 'entries', 'entries' %>
+    </div>
+  </div>
+  <div class="col-md-3">
+    <div class='pull-right'>
+        <%= link_to report_production_records_path(:q => params[:q], :qs => params[:qs], format: "csv"), class: "btn btn-xs btn-default" do %>
+          <span class="glyphicon glyphicon-download"></span> CSV </i>
+        <% end %>
+        <%= link_to report_production_records_path(:q => params[:q], :qs => params[:qs], format: "xls"), class: "btn btn-xs btn-default" do %>
+          <span class="glyphicon glyphicon-download"></span> XLS </i>
+        <% end %>
+        <%= link_to report_production_records_path(:q => params[:q], :qs => params[:qs], format: "pdf"), class: "btn btn-xs btn-default" do %>
+          <span class="glyphicon glyphicon-download"></span> PDF </i>
+        <% end %>
+    </div>
+  </div>
+</div>
+
+
+<div class="modal fade" id="modal-search-window" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+</div>
+
+
+
+<table class="table table-striped table-condensed " style="font-size: 11px">
+  <thead>
+    <tr>
+      <th><%= sort_link @search, :block_id, "Block id" %></th>
+      <th><%= sort_link @search, :block_collection_location_acronym, "Collection" %></th>
+      <th><%= sort_link @search, :block_collection_species_acronym, "Species" %></th>
+      <th><%= sort_link @search, :block_accession_name, "Accession name" %></th>
+      <th><%= sort_link @search, :block_row, "Row" %></th>
+      <th><%= sort_link @search, :block_first_tree, "First Tree" %></th>
+      <th><%= sort_link @search, :block_last_tree, "Last Tree" %></th>
+      <th><%= sort_link @search, :block_planting_date, "Planting date" %></th>
+      <th ><%= sort_link @search, :harvest_date, "Harvest date" %></th>
+      <th ><%= sort_link @search, :tree_number, "Tree number" %></th>
+      <th class="text-right"><%= sort_link @search, :production, "Production" %></th>
+      <th class="text-right"><%= sort_link @search, :c90, "C90" %></th>
+      <th class="text-right"><%= sort_link @search, :c8590, "C8590" %></th>
+      <th class="text-right"><%= sort_link @search, :c8085, "C8085" %></th>
+      <th class="text-right"><%= sort_link @search, :c7580, "C7580" %></th>
+      <th class="text-right"><%= sort_link @search, :c7275, "C7275" %></th>
+      <th class="text-right"><%= sort_link @search, :c7072, "C7072" %></th>
+      <th class="text-right"><%= sort_link @search, :c6870, "C6870" %></th>
+      <th class="text-right"><%= sort_link @search, :c6568, "C6568" %></th>
+      <th class="text-right"><%= sort_link @search, :c65, "C65" %></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @production_records.each do |production_record| %>
+          <tr>
+            <td><%= production_record.block_id %></td>
+            <td><%= production_record.block.collection.location.acronym %></td>
+            <td><%= production_record.block.collection.species.acronym %></td>
+            <td><%= production_record.block.accession.name %></td>
+            <td><%= production_record.block.row %></td>
+            <td><%= production_record.block.first_tree %></td>
+            <td><%= production_record.block.last_tree %></td>
+            <td><%= production_record.block.planting_date %></td>
+            <td><%= production_record.harvest_date %></td>
+            <td><%= production_record.tree_number %></td>
+            <td class="text-right"><%= production_record.production %> </td>
+            <td class="text-right"><%= production_record.c90 %></td>
+            <td class="text-right"><%= production_record.c8590 %></td>
+            <td class="text-right"><%= production_record.c8085 %></td>
+            <td class="text-right"><%= production_record.c7580 %></td>
+            <td class="text-right"><%= production_record.c7275 %></td>
+            <td class="text-right"><%= production_record.c7072 %></td>
+            <td class="text-right"><%= production_record.c6870 %></td>
+            <td class="text-right"><%= production_record.c6568 %></td>
+            <td class="text-right"><%= production_record.c65 %></td>
+          </tr>
+    <% end %>
+  </tbody>
+</table>
+
+
+<%= will_paginate @accessions, renderer: BootstrapPagination::Rails, class: 'pagination-sm' %>

@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Year:</strong>
+  <%= @phenology_record.year %>
+</p>
+
+<p>
+  <strong>C3:</strong>
+  <%= @phenology_record.c3 %>
+</p>
+
+<p>
+  <strong>E2:</strong>
+  <%= @phenology_record.e2 %>
+</p>
+
+<p>
+  <strong>F2:</strong>
+  <%= @phenology_record.f2 %>
+</p>
+
+<p>
+  <strong>G:</strong>
+  <%= @phenology_record.g %>
+</p>
+
+<p>
+  <strong>Block:</strong>
+  <%= @phenology_record.block %>
+</p>
+
+<%= link_to 'Edit', edit_block_phenology_record_path(@block, @phenology_record), :class => 'btn btn-xs btn-primary ' %> |
+<%= link_to 'Back', showphenology_block_path(@block), :class => 'btn btn-xs btn-primary ' %>
+

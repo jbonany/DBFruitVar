@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  row: 1
+  first_tree: 1
+  last_tree: 1
+  tree_number: 1
+  planting_date: 2014-03-15
+  pullout_date: 2014-03-15
+  collection_id: 
+  accession_id: 
+
+two:
+  row: 1
+  first_tree: 1
+  last_tree: 1
+  tree_number: 1
+  planting_date: 2014-03-15
+  pullout_date: 2014-03-15
+  collection_id: 
+  accession_id: 

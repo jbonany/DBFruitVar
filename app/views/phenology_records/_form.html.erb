@@ -1,0 +1,26 @@
+<%= simple_form_for([@block, @phenology_record], html: {class: 'form-group'}, defaults: { input_html: { class: 'form-control'}} ) do |f| %>
+  <% if @phenology_record.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@phenology_record.errors.count, "error") %> prohibited this location from being saved:</h2>
+      <ul>
+      <% @phenology_record.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+    <%= f.association :block, :label_method => lambda { |r| "#{r.collection.name} #{r.accession.name} #{r.row}/#{r.first_tree}-#{r.last_tree} " }, value_method: :id, include_blank: false %>
+    <%= f.input :year, :input_html => { data: {behaviour: "datepicker"}}, :as => :string  %>
+    <%= f.input :c3, :input_html => { data: {behaviour: "datepicker"}}, :as => :string  %>
+    <%= f.input :e2, :input_html => { data: {behaviour: "datepicker"}}, :as => :string  %>
+    <%= f.input :f2, :input_html => { data: {behaviour: "datepicker"}}, :as => :string  %>
+    <%= f.input :g, :input_html => { data: {behaviour: "datepicker"}}, :as => :string  %>
+    
+  
+    <p></p>
+    <%= f.button :submit %>
+    <p></p>
+
+<% end %>
+

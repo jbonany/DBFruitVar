@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Iso:</strong>
+  <%= @country.iso %>
+</p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @country.name %>
+</p>
+
+<p>
+  <strong>Nicename:</strong>
+  <%= @country.nicename %>
+</p>
+
+<p>
+  <strong>Iso3:</strong>
+  <%= @country.iso3 %>
+</p>
+
+<p>
+  <strong>Numcode:</strong>
+  <%= @country.numcode %>
+</p>
+
+<p>
+  <strong>Phonecode:</strong>
+  <%= @country.phonecode %>
+</p>
+
+<%= link_to 'Edit', edit_country_path(@country), :class => 'btn btn-xs btn-primary ' %> |
+<%= link_to 'Back', countries_path, :class => 'btn btn-xs btn-primary ' %>

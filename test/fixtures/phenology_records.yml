@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  year: 2014-03-23
+  c3: 2014-03-23
+  e2: 2014-03-23
+  f2: 2014-03-23
+  g: 2014-03-23
+  block_id: 
+
+two:
+  year: 2014-03-23
+  c3: 2014-03-23
+  e2: 2014-03-23
+  f2: 2014-03-23
+  g: 2014-03-23
+  block_id: 

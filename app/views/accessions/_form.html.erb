@@ -1,0 +1,27 @@
+<%= simple_form_for(@accession, html: {class: 'form-group'}, defaults: { input_html: { class: 'form-control'}} ) do |f| %>
+  <% if @accession.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@location.errors.count, "error") %> prohibited this location from being saved:</h2>
+
+      <ul>
+      <% @accession.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  
+    <%= f.input :name %>
+    <%= f.input :commercial_name %>
+    <%= f.input :clon_name %>
+    <%= f.input :synonims %>
+    <%= f.input :oldcode %>
+    <%= f.association :species %>
+    <%= f.association :group %>
+  
+    <p></p>
+    <%= f.button :submit %>
+    <p></p>
+
+<% end %>

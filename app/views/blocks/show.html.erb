@@ -1,0 +1,45 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Collection:</strong>
+  <%= @block.collection.name %>
+</p>
+
+<p>
+  <strong>Accession:</strong>
+  <%= @block.accession.name %>
+</p>
+<p>
+  <strong>Row:</strong>
+  <%= @block.row %>
+</p>
+
+<p>
+  <strong>First tree:</strong>
+  <%= @block.first_tree %>
+</p>
+
+<p>
+  <strong>Last tree:</strong>
+  <%= @block.last_tree %>
+</p>
+
+<p>
+  <strong>Tree number:</strong>
+  <%= @block.tree_number %>
+</p>
+
+<p>
+  <strong>Planting date:</strong>
+  <%= @block.planting_date %>
+</p>
+
+<p>
+  <strong>Pullout date:</strong>
+  <%= @block.pullout_date %>
+</p>
+
+
+
+<%= link_to 'Edit', edit_block_path(@block), :class => 'btn btn-xs btn-primary ' %> |
+<%= link_to 'Back', blocks_path, :class => 'btn btn-xs btn-primary ' %>

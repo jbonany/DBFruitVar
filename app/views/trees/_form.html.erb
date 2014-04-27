@@ -1,0 +1,25 @@
+<%= simple_form_for(@tree, html: {class: 'form-group'}, defaults: { input_html: { class: 'form-control'}}) do |f| %>
+  
+  <% if @tree.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@location.errors.count, "error") %> prohibited this location from being saved:</h2>
+
+      <ul>
+      <% @tree.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  
+    <%= f.association :block %>
+    <%= f.input :tree %>
+    <%= f.input :row %>
+    <%= f.input :planting_date, :input_html => { data: {behaviour: "datepicker"}}, :as => :string %>     
+    <%= f.input :pullout_date, :input_html => { data: {behaviour: "datepicker"}}, :as => :string %>      
+    <%= f.input :rootstock %> 
+    <p></p> 
+    <%= f.button :submit %>
+    <p></p>
+<% end %>

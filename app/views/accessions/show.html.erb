@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @accession.name %>
+</p>
+
+<p>
+  <strong>Commercial name:</strong>
+  <%= @accession.commercial_name %>
+</p>
+
+<p>
+  <strong>Clon name:</strong>
+  <%= @accession.clon_name %>
+</p>
+
+<p>
+  <strong>Synonims:</strong>
+  <%= @accession.synonims %>
+</p>
+
+<p>
+  <strong>Oldcode:</strong>
+  <%= @accession.oldcode %>
+</p>
+
+<p>
+  <strong>Species:</strong>
+  <%= @accession.species %>
+</p>
+
+<p>
+  <strong>Group:</strong>
+  <%= @accession.group %>
+</p>
+
+<%= link_to 'Edit', edit_accession_path(@accession), :class => 'btn btn-xs btn-primary ' %> |
+<%= link_to 'Back', accessions_path, :class => 'btn btn-xs btn-primary ' %>

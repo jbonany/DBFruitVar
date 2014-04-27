@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @collection.name %>
+</p>
+
+<p>
+  <strong>Row distance:</strong>
+  <%= @collection.row_distance %>
+</p>
+
+<p>
+  <strong>Tree distance:</strong>
+  <%= @collection.tree_distance %>
+</p>
+
+<p>
+  <strong>Location:</strong>
+  <%= @collection.location.name %>
+</p>
+
+<p>
+  <strong>Species:</strong>
+  <%= @collection.species.name %>
+</p>
+
+<%= link_to 'Edit', edit_collection_path(@collection), :class => 'btn btn-xs btn-primary '  %> |
+<%= link_to 'Back', collections_path, :class => 'btn btn-xs btn-primary '  %>

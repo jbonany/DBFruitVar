@@ -1,0 +1,21 @@
+<%= simple_form_for(@species, html: {class: 'form-group'}, defaults: { input_html: { class: 'form-control'}} ) do |f| %>
+
+  <% if @species.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@species.errors.count, "error") %> prohibited this species from being saved:</h2>
+
+      <ul>
+      <% @species.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <%=f.input :name%>
+  <%=f.input :latinname, :label => "Latin name"%>
+  <%=f.input :acronym %>
+  <p></p>
+  <%=f.button :submit %>
+  <p></p> 
+<% end %>

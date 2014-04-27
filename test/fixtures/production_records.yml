@@ -1,0 +1,39 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  harvest_date: 2014-03-25
+  tree_number: 1
+  production: 1.5
+  c90: 1.5
+  c8590: 1.5
+  c8085: 1.5
+  c80: 1.5
+  c7580: 1.5
+  c7275: 1.5
+  c7072: 1.5
+  c6870: 1.5
+  c6568: 1.5
+  c65: 1.5
+  c6065: 1.5
+  c5560: 1.5
+  c55: 1.5
+  block_id: 
+
+two:
+  harvest_date: 2014-03-25
+  tree_number: 1
+  production: 1.5
+  c90: 1.5
+  c8590: 1.5
+  c8085: 1.5
+  c80: 1.5
+  c7580: 1.5
+  c7275: 1.5
+  c7072: 1.5
+  c6870: 1.5
+  c6568: 1.5
+  c65: 1.5
+  c6065: 1.5
+  c5560: 1.5
+  c55: 1.5
+  block_id: 

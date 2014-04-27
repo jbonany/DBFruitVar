@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @location.name %>
+</p>
+
+<p>
+  <strong>Acronym:</strong>
+  <%= @location.acronym %>
+</p>
+
+<p>
+  <strong>Latitude:</strong>
+  <%= @location.latitude %>
+</p>
+
+<p>
+  <strong>Longitude:</strong>
+  <%= @location.longitude %>
+</p>
+
+<%= link_to 'Edit', edit_location_path(@location), :class => 'btn btn-xs btn-primary ' %> |
+<%= link_to 'Back', locations_path, :class => 'btn btn-xs btn-primary '%>
